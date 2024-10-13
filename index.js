@@ -10,10 +10,17 @@ let sistema = new modelo.Sistema();
 
 app.use(express.static(__dirname + "/"));
 
+/*
 app.get("/", function(request,response){
     response.statusCode = 200;
     response.setHeader('Content-Type', 'text/plain');
     response.end('Hola Mundo!');
+});
+*/
+app.get("/", function(request,response){
+    var contenido=fs.readFileSync(__dirname+"/cliente/index.html");
+        response.setHeader("Content-type","text/html");
+        response.send(contenido);
 });
 
 app.listen(PORT, () => {
