@@ -1,0 +1,14 @@
+{
+  "name": "procesos2425_emilio_galindo",
+  "version": "1.0.0",
+  "description": "Proyecto de procesos de ingeniería del software del curso 24-25",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
