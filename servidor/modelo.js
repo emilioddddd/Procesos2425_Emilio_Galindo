@@ -15,10 +15,10 @@ function Sistema(){
     }
 
     this.eliminarUsuario = function(nick){
-        res = false
+        res = {"eliminado":false}
         if(this.usuarios[nick]){
             delete this.usuarios[nick]
-            res = true
+            res = {"eliminado":true}
         }
         return res
     }
@@ -30,7 +30,11 @@ function Sistema(){
     }
 
     this.usuarioActivo = function(nick){
-        return this.usuarios[nick]!=undefined;
+        let res = {"activo":false}
+        if (this.usuarios[nick]!=undefined){
+            return res = {"activo":true};
+        }
+        return res
     }
     this.numeroUsuarios = function(){
         //return Object.keys(this.usuarios).length;
