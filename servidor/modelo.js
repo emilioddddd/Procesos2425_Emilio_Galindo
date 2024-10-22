@@ -3,12 +3,15 @@ function Sistema(){
     this.usuarios = {};// que tipo de coleccion??
     //operaciones sobre la colección
     this.agregarUsuario = function(nick){
-        if (!nick){
-            return false;
+        let res={"nick":-1};
+        if (!this.usuarios[nick]){
+            this.usuarios[nick]=new Usuario(nick);
+            res.nick=nick;
         }
-        if(!this.usuarios[nick]){
-            this.usuarios[nick] = new Usuario(nick);
+        else{
+            console.log("el nick "+nick+" está en uso"); 
         }
+        return res;
     }
 
     this.eliminarUsuario = function(nick){
@@ -21,6 +24,8 @@ function Sistema(){
     }
 
     this.obtenerUsuarios = function(){
+        //let lista=[];
+        
         return this.usuarios
     }
 
@@ -28,7 +33,9 @@ function Sistema(){
         return this.usuarios[nick]!=undefined;
     }
     this.numeroUsuarios = function(){
-        return Object.keys(this.usuarios).length;
+        //return Object.keys(this.usuarios).length;
+        let res = {"num":Object.keys(this.usuarios).length};
+        return res
     }
 }
 

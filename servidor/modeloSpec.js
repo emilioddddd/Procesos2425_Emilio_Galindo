@@ -5,11 +5,11 @@ describe('El sistema ...', function() {
   let sistema;
 
   beforeEach(function(){
-    sistema = new Sistema()
+    sistema = new modelo.Sistema()
   });
   
   it('Incialmente no hay usuarios', function(){
-    expect(sistema.numeroUsuarios()).toBe(0);
+    expect(sistema.numeroUsuarios().num).toEqual(0);
   })
   
   

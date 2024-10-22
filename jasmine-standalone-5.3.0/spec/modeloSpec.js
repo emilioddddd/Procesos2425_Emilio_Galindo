@@ -17,7 +17,7 @@ describe('El sistema', function() {
     //agregar un usuario concreto
     sistema.agregarUsuario("Pepe");
     //comprobar que hay 1 usuario en el sistema
-    expect(sistema.numeroUsuarios()).toEqual(1);
+    expect(sistema.numeroUsuarios()).toEqual("num:1");
     expect(sistema.usuarioActivo("Pepe")).toEqual(true);
 
   });
