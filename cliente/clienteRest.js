@@ -27,7 +27,7 @@ function ClienteRest(){
     this.numeroUsuarios = function(){
         var cli = this;
         $.getJSON("/numeroUsuarios/", function(data){
-            console.log("numero: " + data.num.length)
+            console.log("numero: " + data.num)
         })
     }
      

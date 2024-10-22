@@ -9,48 +9,52 @@ describe('El sistema ...', function() {
   });
   
   it('Incialmente no hay usuarios', function(){
-    expect(sistema.numeroUsuarios()).toEqual({"num":0});
+    //expect(sistema.numeroUsuarios()).toEqual({"num":0});
+    expect(sistema.numeroUsuarios().num).toEqual(0);
   })
   
   
   it("Comprobamos agregar usuario con nick", function(){
     //comprobar que no hay usuarios
-    expect(sistema.numeroUsuarios()).toEqual({"num":0});
+    expect(sistema.numeroUsuarios().num).toEqual(0);
     //agregar un usuario concreto
     sistema.agregarUsuario("Pepe");
     //comprobar que hay 1 usuario en el sistema
-    expect(sistema.numeroUsuarios()).toEqual({"num":1});
-    expect(sistema.usuarioActivo("Pepe")).toEqual({"activo":true});
+    expect(sistema.numeroUsuarios().num).toEqual(1);
+    expect(sistema.usuarioActivo("Pepe").activo).toEqual(true);
 
   });
 
   it("Comprobamos eliminar usuario", function(){
     //comprobar que no hay usuario
-    expect(sistema.numeroUsuarios()).toEqual({"num":0});
+    expect(sistema.numeroUsuarios().num).toEqual(0);
     //agregamos un usuario
     sistema.agregarUsuario("Pepe");
     //comprobamos que el usuario creado esta en el sistema
-    expect(sistema.numeroUsuarios()).toEqual({"num":1});
-    expect(sistema.usuarioActivo("Pepe")).toEqual({"activo":true});
+    expect(sistema.numeroUsuarios().num).toEqual(1);
+    expect(sistema.usuarioActivo("Pepe").activo).toEqual(true);
     //eliminamos el usuario
-    sistema.eliminarUsuario("Pepe");
-    //comprobamos que el usuario eliminado no esta en el sistema
-    expect(sistema.numeroUsuarios()).toEqual({"num":0});
+    //sistema.eliminarUsuario("Pepe");
+    expect(sistema.eliminarUsuario("Pepe").eliminado).toEqual(true);
   });
 
   it("comprobar usuario activo", function(){
     //comprobar que no hay usuario
-    expect(sistema.numeroUsuarios()).toEqual({"num":0});
+    expect(sistema.usuarioActivo("Pepe").activo).toEqual(false);
     //agregamos un usuario
     sistema.agregarUsuario("Pepe");
     //comprobamos que el usuario creado esta en el sistema
-    expect(sistema.numeroUsuarios()).toEqual({"num":1});
-    expect(sistema.usuarioActivo("Pepe")).toEqual({"activo":true});
+    expect(sistema.usuarioActivo("Pepe").activo).toEqual(true);
   });
 
-  xit("comprobar el método número de usuarios", function(){
+  it("comprobar el método número de usuarios", function(){
     //calcular las claves del array asociativo Object.keys(sistema.usuarios)
     //comprobamos que el valor pro numeroUsuarios() es igual al anterior
+    let res=sistema.numeroUsuarios();
+    expect(res.num).toEqual(0);
+    sistema.agregarUsuario("Pepe");
+    res=sistema.numeroUsuarios();
+    expect(res.num).toEqual(1);
   });
 
 });
