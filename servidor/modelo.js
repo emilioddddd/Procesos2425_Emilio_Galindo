@@ -24,9 +24,11 @@ function Sistema(){
     }
 
     this.obtenerUsuarios = function(){
-        //let lista=[];
-        
-        return this.usuarios
+        let res = {"list":[]};
+        for (let i=0; i < Object.keys(this.usuarios).length; i++){
+            res.list.push(Object.keys(this.usuarios)[i]);
+        }
+        return res
     }
 
     this.usuarioActivo = function(nick){

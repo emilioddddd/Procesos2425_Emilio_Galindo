@@ -49,6 +49,20 @@ describe('El sistema', function() {
   xit("comprobar el método número de usuarios", function(){
     //calcular las claves del array asociativo Object.keys(sistema.usuarios)
     //comprobamos que el valor pro numeroUsuarios() es igual al anterior
+    let res=sistema.numeroUsuarios();
+    expect(res.num).toEqual(0);
+    sistema.agregarUsuario("Pepe");
+    res=sistema.numeroUsuarios();
+    expect(res.num).toEqual(1);
   });
+
+  it("comprobar el metodo obtener usuarios", function(){
+    let res = sistema.obtenerUsuarios();
+    expect(res.list).toEqual([]);
+    sistema.agregarUsuario("Pepe");
+    sistema.agregarUsuario("Luis");
+    res = sistema.obtenerUsuarios();
+    expect(res.list).toEqual(["Pepe", "Luis"])
+  })
 
 });

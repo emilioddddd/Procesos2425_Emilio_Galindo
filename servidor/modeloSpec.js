@@ -57,4 +57,13 @@ describe('El sistema ...', function() {
     expect(res.num).toEqual(1);
   });
 
+  it("comprobar el metodo obtener usuarios", function(){
+    let res = sistema.obtenerUsuarios();
+    expect(res.list).toEqual([]);
+    sistema.agregarUsuario("Pepe");
+    sistema.agregarUsuario("Luis");
+    res = sistema.obtenerUsuarios();
+    expect(res.list).toEqual(["Pepe", "Luis"])
+  })
+
 });

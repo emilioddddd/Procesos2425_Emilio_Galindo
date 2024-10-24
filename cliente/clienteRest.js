@@ -46,4 +46,16 @@ function ClienteRest(){
         }
         return res
     }
+    this.obtenerUsuarios = function(){
+        var cli = this;
+        $.getJSON("/obtenerUsuarios/", function(data){
+            if(data.list == []){
+                console.log("No hay usuarios")
+            }else{
+                for(let i=0; i < data.list.length; i++){
+                    console.log("El usuario "+ i+1 + " es "+data.list[i])
+                }
+            }
+        })
+    }
 }
